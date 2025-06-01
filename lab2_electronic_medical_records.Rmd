@@ -308,6 +308,7 @@ We can then look at the top 10 lemma by tf-idf within each specialty:
 all.counts.tfidf %>% dplyr::group_by(medical_specialty) %>% dplyr::slice_max(order_by=tf_idf, n=10)
 ```
 **8** Are there any lemmas that stand out in these lists? Why or why not?
+
 ### The TF-IDF analysis reveals distinctive terminology for each medical specialty. In Orthopedics, terms like range motion, carpal ligament, and proximal phalanx dominate, reflecting joint assessments and anatomical precision. Radiology features imaging-specific terms like myocardial perfusion and calcific plaque, highlighting cardiovascular and diagnostic imaging focuses. Surgery emphasizes procedural language, such as lithotomy position (patient positioning) and steri strips (wound closure), alongside specialized tools like closed vicryl (sutures). Overlap occurs with terms like dissection carried, used in both Surgery and Orthopedics, but most high-TF-IDF terms are domain-specific, aligning with clinical workflows (e.g., ejection fraction in cardiac imaging). These patterns validate TF-IDF’s utility in surfacing specialty-specific language in medical documentation.
 
 We can look at transcriptions in full using these lemmas to check how they are used with `stringr::str_detect`
